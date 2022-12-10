@@ -4,8 +4,9 @@
     width: 100vw;
     flex-direction: row;
     overflow-y: hidden;
-}
-.image-section{
+  }
+  .image-section{
+    background: linear-gradient(rgb(196, 177, 114), rgb(158, 130, 93));
     width: 55%;
     border-right: 14px solid;
     border-image: 
@@ -61,8 +62,8 @@
 
 form {
     font-size: 1vw;
-height: 90%;
-width: 80%;
+    height: 90%;
+    width: 80%;
 /* padding: 5%; */
   display: flex;
   flex-direction: column;
@@ -117,3 +118,197 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #002dc0;
 }
+
+
+.Dashboard{
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.leftBar{
+  padding: 3%;
+  box-sizing: border-box;
+  width: 30%;
+  height: 100%;
+  background-color: rgb(1, 65, 139);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  color: white;
+}
+
+.greeting{
+  font-size: 2vw;
+  font-weight: 400;
+  width: 100%;
+}
+
+.logout{
+  width: min-content;
+  font-size: 1.5vw;
+  text-align: center;
+  padding: 1.5vw;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+}
+
+.logout:hover{
+  background-color: rgb(39, 39, 39);
+  cursor: pointer;
+}
+
+.navigation{
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.nav-item{
+  cursor: pointer;
+  font-size: 2.5vw;
+}
+
+.contentBar{
+  width: 70%;
+  height: 100%;
+  background-color: rgb(218, 235, 255);
+}
+
+.Batch{
+  box-sizing: border-box;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+
+.table-title{
+  font-size: 3vw;
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+
+.table-content{
+  position: relative;
+  right: 2%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-months{
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.current-month{
+  font-size: 2.5vw;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.month-details{
+  margin: 2% 0%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.detail-item{
+  width: 25%;
+  text-align: center;
+}
+
+
+
+
+.Pay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* Define a font stack for the body text */
+/* body {
+  font-family: Arial, sans-serif;
+} */
+
+/* Style the payment page container */
+.Pay > div {
+  /* Center the container on the page */
+  margin: 0 auto;
+  /* Set the width of the container to 60% of the viewport width */
+  width: 60vw;
+  /* Set the maximum width of the container to 500px */
+  max-width: 500px;
+  /* Add some padding to the container */
+  padding: 20px;
+  /* Set the background color of the container */
+  background-color: #f0f0f0;
+  /* Set the border of the container */
+  border: 1px solid #ccc;
+  /* Add some rounded corners to the container */
+  border-radius: 5px;
+}
+
+/* Style the heading */
+.Pay > div h1 {
+  /* Center the heading */
+  text-align: center;
+  /* Add some margin to the top of the heading */
+  margin-top: 0;
+  /* Set the font size to 150% */
+  font-size: 150%;
+}
+
+/* Style the paragraph elements */
+.Pay > div p {
+  /* Set the font size to 120% */
+  font-size: 120%;
+  /* Add some margin to the bottom of the paragraphs */
+  margin-bottom: 10px;
+}
+
+/* Style the button */
+.Pay > div button {
+  /* Set the display to block so that the button takes up the full width of the container */
+  display: block;
+  /* Set the width of the button to 100% */
+  width: 100%;
+  /* Add some padding to the button */
+  padding: 10px;
+  /* Set the font size to 120% */
+  font-size: 120%;
+  /* Set the background color of the button */
+  background-color: #0099ff;
+  /* Set the text color of the button */
+  color: #fff;
+  /* Add a hover effect to the button */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.Pay > div button:hover {
+  background-color: #0066cc;
+}
+
