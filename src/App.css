@@ -1,38 +1,119 @@
-.App {
-  text-align: center;
+.home{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    overflow-y: hidden;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image-section{
+    width: 55%;
+    border-right: 14px solid;
+    border-image: 
+    linear-gradient(
+      #ff512f,
+      #dd2476,
+      #1c64ff
+    )1;
+    animation: rotate 2.5s ease-in infinite;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes rotate{
+  50%{
+    border-image: linear-gradient(
+      360deg,
+      #ff512f,
+      #dd2476,
+       #1c64ff
+    )1 ;
   }
 }
+.image-section img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.form-section{
+    width: 45%;
+    height: 100%;
+}
+.SignForm{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.SignForm .toggle{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.SignForm .toggle .toggle-button{
+    cursor: pointer;
+    padding: 1vw 0.5vw;
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+
+form {
+    font-size: 1vw;
+height: 90%;
+width: 80%;
+/* padding: 5%; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* margin: auto; */
+  /* background: linear-gradient(to bottom, #ffffff, #c5fdff);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
+}
+
+/* Form label */
+label {
+  width: 100%;
+  display: block;
+  font-size: 1vw;
+  font-weight: bold;
+  margin: 0.5vw 0;
+}
+
+/* Form input fields */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+  width: 100%;
+  padding: 0.5vw 0.2vw;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Form radio buttons */
+input[type="radio"] {
+    vertical-align: middle;
+}
+
+/* Form submit button */
+input[type="submit"] {
+  width: 100%;
+  background-color: #0022e4;
   color: white;
+  padding: 1vw 1vw;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Form submit button hover effect */
+input[type="submit"]:hover {
+  background-color: #002dc0;
 }
