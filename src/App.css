@@ -6,14 +6,14 @@
     overflow-y: hidden;
   }
   .image-section{
-    background: linear-gradient(rgb(196, 177, 114), rgb(158, 130, 93));
-    width: 55%;
+    /* background: linear-gradient(rgb(196, 177, 114), rgb(158, 130, 93)); */
+    width: 70%;
     border-right: 14px solid;
     border-image: 
     linear-gradient(
-      #ff512f,
-      #dd2476,
-      #1c64ff
+      #791400,
+      #412700,
+      #a09d00
     )1;
     animation: rotate 2.5s ease-in infinite;
 }
@@ -21,9 +21,9 @@
   50%{
     border-image: linear-gradient(
       360deg,
-      #ff512f,
-      #dd2476,
-       #1c64ff
+      #791400,
+      #412700,
+      #d2c700
     )1 ;
   }
 }
@@ -33,34 +33,73 @@
     object-fit: cover;
 }
 .form-section{
-    width: 45%;
+    width: 30%;
     height: 100%;
+    background-color: rgb(248, 255, 255);
+    background-image: linear-gradient(135deg, #fafaf5 0%, #e0e2c3 100%);
+  color: rgb(0, 0, 0);
 }
 .SignForm{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .SignForm .toggle{
+  position: relative;
+  top: 2%;
     height: 10%;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
-.SignForm .toggle .toggle-button{
+    text-align: center;
+    vertical-align: middle;
+  }
+  .toggle-button{
     cursor: pointer;
-    padding: 1vw 0.5vw;
+    padding:  0.5vw;
+    /* padding: 20px 50px; */
+    text-decoration: none;
+    color: #005741;
+    border: 3px solid #00a078;
+    position: relative;
+    left: 5%;
+}
+ .toggle-button::before,
+ .toggle-button::after{
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: inherit;
+  transition: all .5s;
+}
+ .toggle-button::before{
+  top: -8px;
+  left: -8px;
+  border-width: 3px 0 0 3px;
+}
+ .toggle-button::after{
+  bottom: -8px;
+  right: -8px;
+  border-width: 0 3px 3px 0;
+}
+ .toggle-button:hover::before,
+ .toggle-button:hover::after{
+  width: calc(100% + 27px);
+  height: calc(100% + 27px);
 }
 
 
 
 
 form {
+  box-sizing: border-box;
+  padding: 14% 0%;
     font-size: 1vw;
     height: 90%;
     width: 80%;
@@ -80,8 +119,8 @@ form {
 label {
   width: 100%;
   display: block;
-  font-size: 1vw;
-  font-weight: bold;
+  font-size: 1.2vw;
+  font-weight: 400;
   margin: 0.5vw 0;
 }
 
@@ -92,22 +131,38 @@ input[type="email"],
 input[type="tel"],
 input[type="date"] {
   width: 100%;
-  padding: 0.5vw 0.2vw;
+  padding: 0.8vw 0.2vw;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
+select{
+  width: 100%;
+}
+
+
 /* Form radio buttons */
-input[type="radio"] {
-    vertical-align: middle;
+.radioContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: left;
+  width: 100%;
+  font-weight: 400 !important;
+}
+
+input[type="radio"]{
+  margin: 0% 1% 0% 3%;
 }
 
 /* Form submit button */
 input[type="submit"] {
+  margin-top: 6%;
   width: 100%;
-  background-color: #0022e4;
-  color: white;
+  background-color: #0ac697;
+  color: rgb(0, 0, 0);
   padding: 1vw 1vw;
   border: none;
   border-radius: 4px;
@@ -116,7 +171,7 @@ input[type="submit"] {
 
 /* Form submit button hover effect */
 input[type="submit"]:hover {
-  background-color: #002dc0;
+  background-color: #068263;
 }
 
 
@@ -165,7 +220,7 @@ input[type="submit"]:hover {
 }
 
 .navigation{
-  height: 50%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -240,21 +295,27 @@ input[type="submit"]:hover {
 }
 
 
-
-
-.Pay{
+.pay-container{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background-color: white;
+  top: 0;
+  left: 0;
 }
+
+
 /* Define a font stack for the body text */
 /* body {
   font-family: Arial, sans-serif;
 } */
 
 /* Style the payment page container */
-.Pay > div {
+.Pay {
   /* Center the container on the page */
   margin: 0 auto;
   /* Set the width of the container to 60% of the viewport width */
@@ -272,7 +333,7 @@ input[type="submit"]:hover {
 }
 
 /* Style the heading */
-.Pay > div h1 {
+.Pay > h1 {
   /* Center the heading */
   text-align: center;
   /* Add some margin to the top of the heading */
@@ -282,7 +343,7 @@ input[type="submit"]:hover {
 }
 
 /* Style the paragraph elements */
-.Pay > div p {
+.Pay > p {
   /* Set the font size to 120% */
   font-size: 120%;
   /* Add some margin to the bottom of the paragraphs */
@@ -290,7 +351,7 @@ input[type="submit"]:hover {
 }
 
 /* Style the button */
-.Pay > div button {
+.Pay > button {
   /* Set the display to block so that the button takes up the full width of the container */
   display: block;
   /* Set the width of the button to 100% */
@@ -308,7 +369,10 @@ input[type="submit"]:hover {
   transition: background-color 0.3s;
 }
 
-.Pay > div button:hover {
+.Pay > button:hover {
   background-color: #0066cc;
 }
+
+
+
 

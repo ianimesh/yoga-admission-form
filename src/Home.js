@@ -2,16 +2,24 @@ import React from "react";
 import { useState } from "react";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
-import backgroundYoga from "./assets/yoga-girl.png"
+import backgroundYoga from "./assets/pexels.jpg"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const [form, setForm] = useState(0);
+  const [form, setForm] = useState(1);
+  const navigate = useNavigate();
   function showForm(form) {
     if (form===0) {
       return <SignUpForm setForm={setForm}/>;
     }
     return <SignInForm setForm={setForm}/>;
   }
+
+  useEffect(() => {
+    if(localStorage.getItem("user"))
+      navigate('/dashboard')
+  }, [])
 
   return (
     <div className="home">

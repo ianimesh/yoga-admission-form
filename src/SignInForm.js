@@ -1,23 +1,45 @@
 import React from 'react'
 import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
+
 export default function SignInForm(props) {
+     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
   // Function to handle the form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    // TODO: Validate the username and password
+    if(email===""||password===""){
+      alert("empty username/password")
+      return
+    }
 
-    // TODO: Submit the username and password to the server
-
-    // Clear the form fields
+    const data = {
+      email: email,
+      password: password
+    };
+    
+    axios.post('https://yogabackend-production.up.railway.app/login/', data)
+      .then(response => {
+        console.log(response.data);
+        localStorage.setItem("user",response.data)
+        navigate('/dashboard')
+      })
+      .catch(error => {
+        alert("Invalid UserName/Password")
+      });
     
     setEmail('');
     setPassword('');
   }
+
+ 
     
     function showToggle() {
 
