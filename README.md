@@ -1,6 +1,51 @@
-# Getting Started with Create React App
+# Yoga Classes Form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Usage
+
+### Sign up and Sign in
+
+<img width="285" alt="image" src="https://user-images.githubusercontent.com/62604716/207098769-814bc86d-e525-4d35-b44d-becbee8151f8.png">
+
+These are example sign in credentials.
+
+<img width="286" alt="image" src="https://user-images.githubusercontent.com/62604716/207099250-d4890dd6-fdde-48a2-9423-a9e84b0eebc2.png">
+
+To create a new user, 
+* Fill up the sign up form (shown above). 
+* Password must contain a upper case letter, a lower case letter and a number.
+* Age should be between 18 and 65 years.
+
+Form validation is done using regex. Invalid input will show an alert with corresponding error.
+
+### Enrolling in a new batch
+
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/62604716/207100932-bdb5cc7d-f537-46aa-a5f5-8bbc0eda2fdc.png">
+
+* Upon successful login user will be redirected to the dashboard as shown above.
+* To enroll in a new batch user will have to select a month from the drop down that contains list of 4 months from current month.
+* User will also have to select a batch in which he wants to be enrolled.
+* User is allowed to enroll only once for a month (User will only be allowed to change the batch for next months). 
+* On clicking "Pay" button, user will be redirected to payment page.
+* Upon successful payment a new enrollment will be created.
+* Current batches and enrollment history can be viewed in "my yoga batches" and "enrollment history" section.
+
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/62604716/207102708-8386aa93-515b-4b37-9294-d62023358517.png">
+
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/62604716/207102771-99558ac0-8022-44dc-a7f5-e0d16f9e7e64.png">
+
+## About Database and Backend
+
+### Database (SQLite Relational Database Django)
+
+![image](https://user-images.githubusercontent.com/62604716/207097487-bdaea9e0-8acf-4d14-a6bf-45c196d8cf49.png)
+
+In this diagram, the Subscribers table is the parent table and the Batches and Enrollments tables are child tables. The Subscribers table has a one-to-many relationship with the Enrollments table, where one Subscriber can have many Enrollments, but each Enrollment belongs to only one Subscriber. The Batches table has a one-to-many relationship with the Enrollments table, where one Batch can have many Enrollments, but each Enrollment belongs to only one Batch.
+
+### Backend Django DjangoRestFramework
+
+The Link to backend repository : https://github.com/ianimesh/yoga_backend
+
+This project was created with ReactJS
 
 ## Available Scripts
 
@@ -25,46 +70,3 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
