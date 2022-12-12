@@ -501,4 +501,7 @@ input[type="submit"]:hover {
   font-size: 2vw;
   background-color: #0ac697;
   border-radius: 5px;
+  position: relative;
+  top: -15%;
+  cursor: pointer;
 }
