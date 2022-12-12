@@ -1,45 +1,64 @@
-.home{
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    flex-direction: row;
-    overflow-y: hidden;
-  }
-  .image-section{
-    /* background: linear-gradient(rgb(196, 177, 114), rgb(158, 130, 93)); */
-    width: 70%;
-    border-right: 14px solid;
-    border-image: 
-    linear-gradient(
-      #791400,
+.home {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: row;
+  overflow-y: hidden;
+}
+
+.image-section {
+  position: relative;
+  /* background: linear-gradient(rgb(196, 177, 114), rgb(158, 130, 93)); */
+  width: 70%;
+  border-right: 14px solid;
+  border-image:
+    linear-gradient(#791400,
       #412700,
-      #a09d00
-    )1;
-    animation: rotate 2.5s ease-in infinite;
+      #a09d00)1;
+  animation: rotate 2.5s ease-in infinite;
 }
-@keyframes rotate{
-  50%{
-    border-image: linear-gradient(
-      360deg,
-      #791400,
-      #412700,
-      #d2c700
-    )1 ;
+
+.hed{
+  width: 100%;
+  height: 100%;
+  background-color: #00000081;
+  padding: 25% 5%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%,-50%);
+}
+.hed1{
+  width: 100%;
+  font-size: 3vw;
+  color: white;
+  font-weight: 700;
+}
+
+@keyframes rotate {
+  50% {
+    border-image: linear-gradient(360deg,
+        #791400,
+        #412700,
+        #d2c700)1;
   }
 }
-.image-section img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.form-section{
-    width: 30%;
-    height: 100%;
-    background-color: rgb(248, 255, 255);
-    background-image: linear-gradient(135deg, #fafaf5 0%, #e0e2c3 100%);
+
+.form-section {
+  width: 30%;
+  height: 100%;
+  background-color: rgb(248, 255, 255);
+  background-image: linear-gradient(135deg, #fafaf5 0%, #e0e2c3 100%);
   color: rgb(0, 0, 0);
 }
-.SignForm{
+
+.SignForm {
   height: 100%;
   width: 100%;
   display: flex;
@@ -47,30 +66,33 @@
   align-items: center;
   flex-direction: column;
 }
-.SignForm .toggle{
+
+.SignForm .toggle {
   position: relative;
   top: 2%;
-    height: 10%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    vertical-align: middle;
-  }
-  .toggle-button{
-    cursor: pointer;
-    padding:  0.5vw;
-    /* padding: 20px 50px; */
-    text-decoration: none;
-    color: #005741;
-    border: 3px solid #00a078;
-    position: relative;
-    left: 5%;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
 }
- .toggle-button::before,
- .toggle-button::after{
+
+.toggle-button {
+  cursor: pointer;
+  padding: 0.5vw;
+  /* padding: 20px 50px; */
+  text-decoration: none;
+  color: #005741;
+  border: 3px solid #00a078;
+  position: relative;
+  left: 5%;
+}
+
+.toggle-button::before,
+.toggle-button::after {
   content: "";
   position: absolute;
   width: 40px;
@@ -78,18 +100,21 @@
   border: inherit;
   transition: all .5s;
 }
- .toggle-button::before{
+
+.toggle-button::before {
   top: -8px;
   left: -8px;
   border-width: 3px 0 0 3px;
 }
- .toggle-button::after{
+
+.toggle-button::after {
   bottom: -8px;
   right: -8px;
   border-width: 0 3px 3px 0;
 }
- .toggle-button:hover::before,
- .toggle-button:hover::after{
+
+.toggle-button:hover::before,
+.toggle-button:hover::after {
   width: calc(100% + 27px);
   height: calc(100% + 27px);
 }
@@ -100,10 +125,10 @@
 form {
   box-sizing: border-box;
   padding: 14% 0%;
-    font-size: 1vw;
-    height: 90%;
-    width: 80%;
-/* padding: 5%; */
+  font-size: 1vw;
+  height: 90%;
+  width: 80%;
+  /* padding: 5%; */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -137,13 +162,13 @@ input[type="date"] {
   border-radius: 4px;
 }
 
-select{
+select {
   width: 100%;
 }
 
 
 /* Form radio buttons */
-.radioContainer{
+.radioContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -153,8 +178,12 @@ select{
   font-weight: 400 !important;
 }
 
-input[type="radio"]{
-  margin: 0% 1% 0% 3%;
+input[type="radio"] {
+  margin: 0% 1% 0% 10%;
+}
+
+input[type="radio"]:first-child {
+  margin: 0% 1% 0% 0%;
 }
 
 /* Form submit button */
@@ -175,7 +204,7 @@ input[type="submit"]:hover {
 }
 
 
-.Dashboard{
+.Dashboard {
   width: 100vw;
   height: 100vh;
   overflow-y: hidden;
@@ -183,7 +212,7 @@ input[type="submit"]:hover {
   flex-direction: row;
 }
 
-.leftBar{
+.leftBar {
   padding: 3%;
   box-sizing: border-box;
   width: 30%;
@@ -196,13 +225,13 @@ input[type="submit"]:hover {
   color: white;
 }
 
-.greeting{
+.greeting {
   font-size: 2vw;
   font-weight: 400;
   width: 100%;
 }
 
-.logout{
+.logout {
   width: min-content;
   font-size: 1.5vw;
   text-align: center;
@@ -214,12 +243,12 @@ input[type="submit"]:hover {
   transition: background-color 0.3s;
 }
 
-.logout:hover{
+.logout:hover {
   background-color: rgb(39, 39, 39);
   cursor: pointer;
 }
 
-.navigation{
+.navigation {
   height: 60%;
   display: flex;
   flex-direction: column;
@@ -228,20 +257,20 @@ input[type="submit"]:hover {
   justify-content: space-around;
 }
 
-.nav-item{
+.nav-item {
   cursor: pointer;
   font-size: 2.5vw;
 }
 
-.contentBar{
+.contentBar {
   width: 70%;
   height: 100%;
   background-color: rgb(218, 235, 255);
 }
 
-.Batch{
+.Batch {
   box-sizing: border-box;
-  padding: 4%;
+  padding: 5%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -250,13 +279,12 @@ input[type="submit"]:hover {
   height: 100%;
 }
 
-.table-title{
+.table-title {
   font-size: 3vw;
   font-weight: 600;
-  margin-bottom: 3%;
 }
 
-.table-content{
+.table-content {
   position: relative;
   right: 2%;
   height: 80%;
@@ -267,13 +295,14 @@ input[type="submit"]:hover {
   align-items: center;
 }
 
-.sub-months{
+.sub-months {
   font-size: 1.5vw;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.current-month{
+
+.current-month {
   font-size: 2.5vw;
   font-weight: 700;
   display: flex;
@@ -281,7 +310,7 @@ input[type="submit"]:hover {
   width: 100%;
 }
 
-.month-details{
+.month-details {
   margin: 2% 0%;
   display: flex;
   flex-direction: row;
@@ -289,13 +318,13 @@ input[type="submit"]:hover {
   align-items: center;
 }
 
-.detail-item{
+.detail-item {
   width: 25%;
   text-align: center;
 }
 
 
-.pay-container{
+.pay-container {
   position: absolute;
   height: 100vh;
   width: 100vw;
@@ -333,7 +362,7 @@ input[type="submit"]:hover {
 }
 
 /* Style the heading */
-.Pay > h1 {
+.Pay>h1 {
   /* Center the heading */
   text-align: center;
   /* Add some margin to the top of the heading */
@@ -343,7 +372,7 @@ input[type="submit"]:hover {
 }
 
 /* Style the paragraph elements */
-.Pay > p {
+.Pay>p {
   /* Set the font size to 120% */
   font-size: 120%;
   /* Add some margin to the bottom of the paragraphs */
@@ -351,7 +380,7 @@ input[type="submit"]:hover {
 }
 
 /* Style the button */
-.Pay > button {
+.Pay>button {
   /* Set the display to block so that the button takes up the full width of the container */
   display: block;
   /* Set the width of the button to 100% */
@@ -369,10 +398,107 @@ input[type="submit"]:hover {
   transition: background-color 0.3s;
 }
 
-.Pay > button:hover {
+.Pay>button:hover {
   background-color: #0066cc;
 }
 
+.Enrollment{
+  box-sizing: border-box;
+  padding: 5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Payments{
+  box-sizing: border-box;
+  padding: 5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title{
+  font-size: 3vw;
+  font-weight: 600;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+  height: 85%;
+}
+
+.bold{
+  font-weight: 700;
+  font-size: 1.7vw;
+}
+
+.row{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 2% 0%;
+}
+
+.item{
+  width: 20%;
+  font-size: 1.5vw;
+}
+
+.form{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.radioElem{
+  margin: 2% 0%;
+  font-size: 1.3vw;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-center;
+  justify-content: flex-start;
+}
+
+.radioContainer1{
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+}
 
 
+.label{
+  width: 100%;
+  font-weight: 500;
+  font-size: 2vw;
+  margin-bottom: 3%;
+}
 
+.label-title{
+  margin-bottom: 2%;
+}
+
+.select{
+  padding: 1%;
+  font-size: 1.3vw;
+}
+
+.payButtonn:hover{
+  background-color: #00a078;
+}
+
+.payButtonn{
+  color: white;
+  padding: 2% 5%;
+  font-size: 2vw;
+  background-color: #0ac697;
+  border-radius: 5px;
+}

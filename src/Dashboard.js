@@ -10,18 +10,18 @@ import axios from 'axios'
 export default function Dashboard() {
   const [name, setName] = useState();
   const navigate = useNavigate();
-  const logout = ()=>{
-    localStorage.removeItem("user"); 
+  const logout = () => {
+    localStorage.removeItem("user");
     navigate('/');
   }
   useEffect(() => {
-    if(!localStorage.getItem("user"))
+    if (!localStorage.getItem("user"))
       navigate('/')
     else
       getname()
   }, [])
 
-  async function getname(){
+  async function getname() {
     axios.get(`https://yogabackend-production.up.railway.app/get_subscriber/${localStorage.getItem("user")}/`)
       .then(response => {
         setName(response.data.name);
@@ -29,21 +29,21 @@ export default function Dashboard() {
       .catch(error => {
         console.log(error);
       });
-    }
-  
-
-
-  const [Content, setContent] = useState(0)
-  function showContent(content){
-    if(content===0)
-    return <Batch/>
-    if(content===1)
-    return <Enrollment/>
-    if(content===2)
-    return <Payments/>
   }
-  function boldStyle(b){
-    return b?{fontWeight: '700'}:{}
+
+
+
+  const [Content, setContent] = useState(1)
+  function showContent(content) {
+    if (content === 0)
+      return <Batch />
+    if (content === 1)
+      return <Enrollment />
+    if (content === 2)
+      return <Payments />
+  }
+  function boldStyle(b) {
+    return b ? { fontWeight: '700' } : {}
   }
   return (
     <div className="Dashboard">
@@ -51,9 +51,9 @@ export default function Dashboard() {
         <div className='greeting'>Welcome {name}</div>
         <div className="logout" onClick={logout}>Logout</div>
         <div className="navigation">
-          <div className='nav-item' style={boldStyle(Content===0)} onClick={()=>{setContent(0)}}>• my yoga batches</div>
-          <div className='nav-item' style={boldStyle(Content===1)} onClick={()=>{setContent(1)}}>• new enrollment</div>
-          <div className='nav-item' style={boldStyle(Content===2)} onClick={()=>{setContent(2)}}>• enrollment history</div>
+          <div className='nav-item' style={boldStyle(Content === 1)} onClick={() => { setContent(1) }}>• new enrollment</div>
+          <div className='nav-item' style={boldStyle(Content === 0)} onClick={() => { setContent(0) }}>• my yoga batches</div>
+          <div className='nav-item' style={boldStyle(Content === 2)} onClick={() => { setContent(2) }}>• enrollment history</div>
         </div>
       </div>
       <div className='contentBar'>

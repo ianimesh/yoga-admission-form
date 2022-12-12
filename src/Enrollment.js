@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Pay from "./Pay"
 
-function getMonth(num){
+function getMonth(num) {
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   var monthName = months[num];
   return monthName
 }
 
 
-function getnextThreeMonths(){
+function getnextThreeMonths() {
   var date = new Date();
   var currentMonth = date.getMonth();
   var nextThreeMonths = [];
@@ -31,58 +31,79 @@ export default function Enrollment() {
   const [year, setYear] = useState();
   const [batch, setBatch] = useState('1');
   const [showPay, setShowPay] = useState(false);
+  const [tid, setTid] = useState()
+  const [date, setDate] = useState()
 
 
-  const handleMonthChange = (e) =>{
-    if(e.target.value<12){
-      setMonth(e.target.value+1)
+  const handleMonthChange = (e) => {
+    if (e.target.value < 12) {
+      setMonth((e.target.value % 12) + 1)
       setYear(new Date().getFullYear())
-    }else{
-      setMonth((e.target.value%12) + 1)
-      setYear(new Date().getFullYear()+1)
+    } else {
+      setMonth((e.target.value % 12) + 1)
+      setYear(new Date().getFullYear() + 1)
     }
   }
-  
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Do something with the form data here, such as send it to an API or save it to a database
+    if (!month) {
+      alert("Select Month")
+    }
+
+
+    var res = await fetch('https://yogabackend-production.up.railway.app/get_random_transaction_id/')
+    var data = await res.json()
+    setTid(data.id)
+    let yourDate = new Date()
+    var v = yourDate.toISOString().split('T')[0]
+    setDate(v)
+    setShowPay(true)
+
+
+
+
+
+
+
   }
 
-  function showPayment(){
-    if(showPay){
-      return <Pay/>
+  function showPayment() {
+    if (showPay) {
+      return <Pay tid={tid} batch={batch} month={month} year={year} date={date} setShowPay={setShowPay} uid={localStorage.getItem("user")} />
     }
     return <></>
   }
 
   return (
-    <div>
-      {showPayment}
-      <form onSubmit={handleSubmit}>
-      
-      <label>
-          Month:
-          <select onChange={handleMonthChange} id="months">
-            <option>-Select Month-</option>
-            {getnextThreeMonths().length > 0 && getnextThreeMonths().map((item, i) => 
-              <option value={item}>{getMonth((item)%12)}</option>
+    <div className="Enrollment">
+      <div className="title">new enrollment </div>
+      {showPayment()}
+      <form className="form" onSubmit={handleSubmit}>
+
+        <label className="label">
+          <div className="label-title">month:</div>
+          <select className="select" onChange={handleMonthChange} id="months">
+            <option className="option" >-Select Month-</option>
+            {getnextThreeMonths().length > 0 && getnextThreeMonths().map((item, i) =>
+              <option className="option" value={item}>{getMonth((item) % 12)}</option>
             )}
           </select>
         </label>
 
-        <label>
-          Batch:
-          <div className="radioContainer">
-            <input type="radio" value="1" checked={batch === '1'} onChange={(e) => setBatch(e.target.value)} /> 6-7 AM
-            <input type="radio" value="2" checked={batch === '2'} onChange={(e) => setBatch(e.target.value)} /> 7-8 AM 
-            <input type="radio" value="3" checked={batch === '3'} onChange={(e) => setBatch(e.target.value)} /> 8-9 AM
-            <input type="radio" value="4" checked={batch === '4'} onChange={(e) => setBatch(e.target.value)} /> 5-6 PM
+        <label className="label">
+        <div className="label-title">batch:</div>
+          <div className="radioContainer1">
+            <div className="radioElem"><input className="radio" type="radio" value="1" checked={batch === '1'} onChange={(e) => setBatch(e.target.value)} /> <div className="radioText">6-7 AM by Prabhat Verma</div></div>
+            <div className="radioElem"><input className="radio" type="radio" value="2" checked={batch === '2'} onChange={(e) => setBatch(e.target.value)} /> <div className="radioText">7-8 AM by Indresh Gupta</div></div>
+            <div className="radioElem"><input className="radio" type="radio" value="3" checked={batch === '3'} onChange={(e) => setBatch(e.target.value)} /> <div className="radioText">8-9 AM by Priyanka Gautam</div></div>
+            <div className="radioElem"><input className="radio" type="radio" value="4" checked={batch === '4'} onChange={(e) => setBatch(e.target.value)} /> <div className="radioText">5-6 PM by Rashi Agarwal</div></div>
           </div>
         </label>
-      <button type="submit">Submit</button>
-    </form>
+        <button className="payButtonn" type="submit">pay</button>
+      </form>
     </div>
-    
+
   );
 }

@@ -24,6 +24,11 @@ export default function Home() {
   return (
     <div className="home">
       <div className="image-section">
+        <div className="hed">
+        <div className="hed1">Experience the transformative power of yoga at our Yoga Classes.</div>
+        <br></br>
+        <div className="hed1">Release stress, improve flexibility, and find inner peace.</div>
+        </div>
         <img src={backgroundYoga}></img>
       </div>
       <div className="form-section">
